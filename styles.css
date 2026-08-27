@@ -587,29 +587,28 @@ footer strong {
     }
     
     .timeline::before {
-        left: 25%; /* Center of the left 50% */
+        display: none; /* Hide red line on mobile */
     }
     
     .timeline-item {
         padding-right: 0;
-        padding-left: 50%; /* Give 50% to cards, 50% to rocket */
+        padding-left: 100px; /* Give 100px to rocket, the rest to cards */
         justify-content: flex-start;
     }
     
     .timeline-item:nth-child(even) {
-        padding-left: 50%;
+        padding-left: 100px;
     }
     
     .timeline-icon {
-        left: calc(25% - 25px); /* Centered over the line at 25% */
-        transform: translate(0, 0);
-        z-index: 2; /* Keep above the rocket */
+        display: none; /* Hide icons on mobile */
     }
     
     .timeline-item:nth-child(odd) .timeline-content,
     .timeline-item:nth-child(even) .timeline-content {
         text-align: left;
         width: 100%;
+        padding: 1.2rem; /* Reduce padding to give text more room */
     }
     
     .hero-content h1 {
@@ -643,14 +642,14 @@ footer strong {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 50%; /* 50% of the screen */
-    z-index: 1; /* Fly exactly over the line, but under the timeline cards */
+    width: 90px; /* Fixed small width to maximize text space */
+    z-index: 1; /* Fly under the timeline cards */
     pointer-events: none; /* Allows scrolling and tapping on timeline */
 }
 
 .rocket-scaler {
-    transform: scale(0.6); /* Scale it up so it fills the 50% nicely */
-    transform-origin: center center; /* Keep it centered in the 50% column */
+    transform: scale(0.35); /* Scale it down to fit in 90px */
+    transform-origin: center center; /* Keep it centered in the column */
     transition: transform 0.3s ease;
 }
 
